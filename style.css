@@ -1,0 +1,137 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  overflow: hidden;
+}
+
+.gameContainer {
+  background-image: url("bg.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+}
+
+/* Dino */
+.dino {
+  background-image: url("dino.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  width: 15vmin;
+  height: 15vmin;
+  position: absolute;
+  bottom: 8vmin;
+  left: 5vmin;
+  z-index: 10;
+}
+
+/* Obstacle */
+.obstacle {
+  background-image: url("dinosour.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  width: 18vmin;
+  height: 18vmin;
+  position: absolute;
+  bottom: 8vmin;
+  left: 77vw;
+  z-index: 5;
+}
+
+.animateDino {
+  animation: dinoJump 0.9s ease-out forwards;
+}
+
+/* Jump animation scales with screen size */
+@keyframes dinoJump {
+  0% { bottom: 8vmin; }
+  40% { bottom: 40vmin; }
+  60% { bottom: 40vmin; }
+  100% { bottom: 8vmin; }
+}
+
+.obstacleAni {
+  animation: obstacleAni 3s linear infinite;
+}
+
+@keyframes obstacleAni {
+  0% { left: 100vw; }
+  100% { left: -20vmin; }
+}
+
+/* Game over text */
+.gameOver {
+  position: absolute;
+  top: 5vmin;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 4vmin;
+  color: rgb(24, 10, 10);
+  font-weight: bold;
+  text-align: center;
+}
+
+/* Score counter */
+#scoreCont {
+  position: absolute;
+  top: 5vmin;
+  left: 2vmin;
+  font-size: 3vmin;
+  color: #000;
+  font-weight: bold;
+}
+
+/* Mobile tweaks */
+@media (max-width: 768px) {
+  .dino {
+    width: 18vmin;
+    height: 18vmin;
+  }
+  .obstacle {
+    width: 20vmin;
+    height: 20vmin;
+  }
+  .gameOver {
+    font-size: 5vmin;
+  }
+  #scoreCont {
+    font-size: 4vmin;
+  }
+}
+
+/* Shake effect */
+.shake {
+  animation: shake 0.5s;
+}
+
+@keyframes shake {
+  0% { transform: translate(0px, 0px); }
+  25% { transform: translate(5px, 0px); }
+  50% { transform: translate(-5px, 0px); }
+  75% { transform: translate(5px, 0px); }
+  100% { transform: translate(0px, 0px); }
+}
+
+/* Fade in */
+.gameOver {
+  animation: fadeIn 1.5s ease-out;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
