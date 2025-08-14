@@ -55,6 +55,6 @@ Run, jump, and dodge obstacles while background music plays, and try to **beat y
 ## 🔧 Setup Instructions
 1. **Clone this repository**
    ```bash
-   git clone https://github.com/NandaBendkoli/dinoGame.git
+   git clone https://github.com/NandaBendkoli/Dino_Game
 
 
